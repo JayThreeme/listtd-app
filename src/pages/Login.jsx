@@ -1,5 +1,5 @@
 import { Input, Button, Checkbox, Form } from "antd";
-import { GoogleOutlined, AppleOutlined } from "@ant-design/icons";
+import { GoogleOutlined } from "@ant-design/icons";
 import { logopng } from "../assets";
 
 // import { logosvg } from "../assets";
@@ -89,19 +89,6 @@ const Login = () => {
             size="large"
           >
             Sign in with Google
-          </Button>
-          <Button
-            className="flex items-center justify-center bg-black text-white hover:bg-gray-800 rounded-lg"
-            size="large"
-          >
-            <AppleOutlined />
-            <span className="ml-2">Sign in with Apple</span>
-          </Button>
-          <Button
-            className="flex items-center justify-center bg-gray-200 hover:bg-gray-300 rounded-lg"
-            size="large"
-          >
-            Sign in with SSO
           </Button>
         </div>
       </div>

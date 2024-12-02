@@ -6,8 +6,7 @@ const { Title, Paragraph } = Typography;
 
 const Home = () => {
   return (
-    <div className="font-sans bg-gray-100">
-      {/* Hero Section */}
+    <div className=" ">
       <section
         className="bg-cover bg-center py-20 text-white"
         style={{ backgroundImage: "url('path-to-your-image.jpg')" }}
@@ -33,7 +32,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="py-16">
         <div className="max-w-screen-xl mx-auto text-center">
           <Title level={2} className="text-3xl font-semibold mb-10">
@@ -101,11 +99,7 @@ const Home = () => {
           </Row>
         </div>
       </section>
-
-      {/* About Section */}
       <About />
-
-      {/* Call to Action */}
       <section className="bg-blue-900 text-white py-12 text-center">
         <Title level={2} className="text-3xl font-semibold mb-4">
           Take Control of Your Job Search Today!
