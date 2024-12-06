@@ -1,39 +1,16 @@
+import { logopng } from "../assets";
+import FormSignUp from "./components/FormSignUp";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "antd";
 import { GoogleOutlined } from "@ant-design/icons";
-import { logopng } from "../assets";
-import { Link, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
-import {
-  signInWithGoogle,
-  getGoogleRedirectResult,
-} from "../firebaseConfig/auth";
-import FormLogin from "./components/FormLogin";
+import { useState } from "react";
+import { signInWithGoogle } from "../firebaseConfig/auth";
 
-const Login = () => {
-  const [user, setUser] = useState(null); // User state
-  const [loading, setLoading] = useState(false); // Loading state for Google login
-  const navigate = useNavigate(); // Initialize useNavigate
+const SignUp = () => {
+  const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
-  // Fetch Google redirect result on component mount
-  useEffect(() => {
-    const fetchRedirectResult = async () => {
-      try {
-        const loggedInUser = await getGoogleRedirectResult();
-        if (loggedInUser) {
-          setUser(loggedInUser);
-          navigate("/user");
-        } else {
-          navigate("/login");
-        }
-      } catch (error) {
-        console.error("Error in redirect result:", error.message);
-      }
-    };
-
-    fetchRedirectResult();
-  }, [navigate]);
-
-  // Handle Google login
   const handleGoogleSignIn = async () => {
     setLoading(true); // Show loading spinner
     try {
@@ -56,7 +33,7 @@ const Login = () => {
           <img src={logopng} alt="logo" className="mx-auto w-36" />
         </div>
 
-        <FormLogin />
+        <FormSignUp />
 
         <div className="flex flex-col gap-3">
           <Button
@@ -66,14 +43,14 @@ const Login = () => {
             loading={loading} // Show spinner during login
             onClick={handleGoogleSignIn}
           >
-            Sign in with Google
+            Signup with Google
           </Button>
           <div className="border-t border-gray-300 my-6"></div>
         </div>
 
         <div className="text-center mb-5">
           <p className="text-gray-500 my-6">
-            Don’t have an account? <Link to="/signup">SignUp</Link>
+            Already have account? <Link to="/login">Login</Link>
           </p>
         </div>
       </div>
@@ -81,4 +58,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

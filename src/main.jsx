@@ -11,6 +11,9 @@ import About from "./pages/About";
 import Features from "./pages/Features";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
+import Dashboard from "./user/pages/Dashboard";
+import User from "./user/User";
+import SignUp from "./pages/SignUp";
 
 const root = document.getElementById("root");
 
@@ -23,6 +26,10 @@ ReactDOM.createRoot(root).render(
         <Route path="features" element={<Features />} />
         <Route path="contact" element={<Contact />} />
         <Route path="login" element={<Login />} />
+        <Route path="signup" element={<SignUp />} />
+      </Route>
+      <Route path="/user" element={<User />}>
+        <Route index element={<Dashboard />} />
       </Route>
     </Routes>
   </BrowserRouter>
